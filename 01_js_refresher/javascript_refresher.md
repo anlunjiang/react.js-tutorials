@@ -111,14 +111,75 @@ console.log(myArray) // = [1, 2, 3, 1, 2]
 * Rest - Used to merge a list of function arguments into an array
 ```javascript
 const sortArgs = (...args) => {
-  return args.sort()
+  return args.filter(el => el === 1) // sort of like lambda functions
 };
 
 console.log(sortArgs(1, 2, 6, 4, 2)); // basically good unpacking in python
+```
+
+# Destructuring
+
+* Allows you to extract array elements or object properties and store them in variables
+```javascript
+// Array Destructuring
+const myArray =  ["Hello", "Goodbye", "OK"]
+[a, b] = myArray
+console.log(a) // Hello
+console.log(b) // Goodbye
+
+// Object Destructuring
+
+{name} = {name: "Anlun", "Age": 26} // targets name property of the object
+console.log(name) // "Anlun"
+console.log(age) // undefined
 
 ```
 
-# 
+# Reference and Primitive Types
+
+* Primitive types are like ints or floats
+* Objects and Arrays are reference types - they reference primitive types
+* Like in Python, variables hold references to objects
+
+```javascript
+const person = {
+    name: "Anlun"
+};
+const secondPerson = person;
+person.name = "Marlene"
+console.log(secondPerson) // Marlene - changing the original changes the pointer object
+
+// We can use the spread operator to do a true immutable copy
+const secondPerson = {...person}; // Like a deep copy 
+```
+
+# Array Functions
+
+```javascript
+const numbers = [1, 2, 3];
+const doubleNumArray = numbers.map(
+        (num) => {
+            return num * 2
+        }
+);
+
+// This is basically lambda functions
+```
+
+
+You'll see me use them quite a bit since a lot of React concepts rely on working with arrays (in immutable ways).
+
+
+Particularly important in this course are:
+
+* map()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+* find()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+* findIndex()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex
+* filter()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+* reduce()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce?v=b
+* concat()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat?v=b
+* slice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+* splice()  => https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
 
 # JSBIN
 

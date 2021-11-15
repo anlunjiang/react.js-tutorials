@@ -26,6 +26,10 @@
     * index.html has a div root which is empty - but is ready to render whatever is in the app
 
 
-## JSX
+## JSX - JavaScript XML 
 
-Basically just HTML code inside JS.
+Basically just HTML code inside JS. - JSX is not normal JS syntax - and only works because there 
+are transformation steps React does behind the scenes - think of interpreters
+
+* You can see the actual code that runs in the F12 developer web console - and click sources
+

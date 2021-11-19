@@ -112,3 +112,30 @@ export default function ExpenseItem(props) {
     )
 }
 ```
+
+## Composition
+It is good practice to create re-usable components - or more generic ones that can be
+reconfigured easily - e.g. cards
+
+```javascript
+export default function Card(props) {
+    const classes = "card " + props.className;
+    return <div className={classes}>{props.children}</div>
+}
+// props.children makes sure that the custom component can see all the properties of the
+// inside nested components. You then put the nested classnames into the wrapping tag
+// so all the classnames are visible
+
+export default function ExpenseItem(props) {
+    return (
+        <Card className="expense-item">
+            <ExpenseDate date={props.date}/>
+            <div className="expense-item__description">
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">{props.amount}</div>
+            </div>
+        </Card>
+    )
+}
+```
+It's common to also pass data between tags too - as well as create resuable compo

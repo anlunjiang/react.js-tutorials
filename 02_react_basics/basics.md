@@ -92,18 +92,18 @@ export default function ExpenseItem(input) {
 
 ## Passing Data via Props / Properties
 
-Each function has convention of receiving a single input called `props` - this essentially
-is an object or dict format.  
+Each function has convention of receiving a single input called `props` - this essentially is an object or dict format.
 
-When passing to other components - you can set the values of their props - instead of passing
-individual args - this is different to say other OOP languages like say python or java
+When passing to other components - you can set the values of their props - instead of passing individual args - this is
+different to say other OOP languages like say python or java
 
 ```javascript
 export default function ExpenseItem(props) {
     console.log(props.children)
     return (
         <div className="expense-item">
-            <ExpenseDate date={props.date}/> // sets the prop dict value for date 
+            <ExpenseDate date={props.date}/>
+            // sets the prop dict value for date
             <div className="expense-item__description">
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">{props.amount}</div>
@@ -114,8 +114,8 @@ export default function ExpenseItem(props) {
 ```
 
 ## Composition
-It is good practice to create re-usable components - or more generic ones that can be
-reconfigured easily - e.g. cards
+
+It is good practice to create re-usable components - or more generic ones that can be reconfigured easily - e.g. cards
 
 ```javascript
 export default function Card(props) {
@@ -138,4 +138,41 @@ export default function ExpenseItem(props) {
     )
 }
 ```
-It's common to also pass data between tags too - as well as create resuable compo
+
+It's common to also pass data between tags too - as well as create resuable components
+
+## Deeper Dive into JSX
+
+You will notice in the index.js that you import React-Dom but never React itself. This is common for all modern react
+projects that have been created using `npx create-react-app`
+
+This is a new feature and older projects actually require you to `import React from "react"` on EVERY component file -
+since they use JSX
+
+```javascript
+return (
+    <div>
+        <h2>Let's get started</h2>
+        <Expenses items={expenses}>{props.amount}</Expenses>
+    </div>
+)
+
+// This is actually calling this method:
+/*
+args:
+    "div" - type of element
+    {} - optional  - sets all the attrs of the element
+    **rest - all the nested child elements 
+ */
+return React.createElement(
+    "div",
+    {},
+    React.createElement("h2", {}, "Let's get started"),
+    React.createElement(Expenses, {items: expenses})
+)
+```
+The above 2 examples are the same thing - but one takes longer to read, but is more
+programmatic
+
+The first one is much more readable as HTML
+

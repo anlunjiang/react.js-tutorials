@@ -8,7 +8,7 @@ import ExpenseDate from "../expense_date/ExpenseDate";
  * @returns {JSX.Element}
  * @constructor
  */
-export default function ExpenseItem(props) {
+const ExpenseItem = (props) => {
     console.log(props.children)
     return (
         <Card className="expense-item">
@@ -20,3 +20,5 @@ export default function ExpenseItem(props) {
         </Card>
     )
 }
+
+export default ExpenseItem;

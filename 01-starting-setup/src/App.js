@@ -1,9 +1,12 @@
-function App() {
-  return (
-    <div>
-      <h2>Let's get started!</h2>
-    </div>
-  );
-}
+import ExpensesTemplate from "./components/expenses/expenses_template/ExpensesTemplate";
 
-export default App;
+/**
+ * Root elemtent to render all other tags
+ * @returns {JSX.Element}
+ */
+export default function App() {
+    console.log("Starting App")
+    return (
+        <ExpensesTemplate/>
+    )
+}

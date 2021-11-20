@@ -97,6 +97,7 @@ Each function has convention of receiving a single input called `props` - this e
 When passing to other components - you can set the values of their props - instead of passing individual args - this is
 different to say other OOP languages like say python or java
 
+
 ```javascript
 export default function ExpenseItem(props) {
     console.log(props.children)
@@ -116,6 +117,7 @@ export default function ExpenseItem(props) {
 ## Composition
 
 It is good practice to create re-usable components - or more generic ones that can be reconfigured easily - e.g. cards
+
 
 ```javascript
 export default function Card(props) {
@@ -175,4 +177,3 @@ The above 2 examples are the same thing - but one takes longer to read, but is m
 programmatic
 
 The first one is much more readable as HTML
-

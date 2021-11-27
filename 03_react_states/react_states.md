@@ -9,7 +9,7 @@ In HTML there are button tags - same with JSX in React - but the listener is eas
 
 // Naming Convention handler suffix - meaning this function is attached to an event
 const clickHandler = () => {
-    console.log("Clicked! My man!")
+  console.log("Clicked! My man!")
 }
 
 <button onClick={clickHandler}>Change Title</button>
@@ -51,9 +51,9 @@ useState actually returns an Array - first value the variable itself, and the se
 You can listen to input from HTML tags:
 
 ```javascript
-
+const [enteredTital, setEnteredTitle] = useState("");
 const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value)
+  setEnteredTitle(event.target.value)
 }
 <input type="text" onChange={titleChangeHandler}/>
 ```
@@ -79,3 +79,57 @@ timeStamp: 44110.59999999404
 
 * Important to note is the target.value = input
 * You can have multiple state calls that are independent of each other
+
+```javascript
+  const [userInput, setUserInput] = useState({
+  enteredTital: "",
+  enteredAmount: "",
+  enteredDate: "",
+})
+
+const titleChangeHandler = (event) => {
+  setEnteredTitle(event.target.value)
+  setUserInput({
+    ...userInput,
+    enteredTital: event.target.value
+  })
+}
+
+const titleChangeHandler = (event) => {
+  setUserInput((prevState) => {
+    return {...prevState, enteredTital: event.target.value}
+  });
+};
+// this would work - but can be better:
+// React schedules state updates - so with the 1st method you may be
+// updating from an outdated state
+// The new method always retrieves the latest state 
+```
+
+One thing you can do is make only one state object for a component
+
+- as hashmaps - can be cleaner
+
+## Submitting on Forms
+
+If a button of type submit, is inside a form tag - you can have a listener on the form tag itself
+
+* Note that default behaviour is that the form will refresh the page
+    * Since it will send a request to the server
+* This default behaviour is overrided by
+
+```javascript
+const submitHandler = (event) => {
+  event.preventDefault();
+  const expenseData = {
+    title: enteredTitle,
+    amount: enteredAmount,
+    date: new Date(enteredDate),
+  };
+  console.log(expenseData);
+};
+
+<form onSubmit={submitHandler}>
+```
+
+## Two way binding

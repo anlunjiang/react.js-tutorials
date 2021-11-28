@@ -132,4 +132,50 @@ const submitHandler = (event) => {
 <form onSubmit={submitHandler}>
 ```
 
-## Two way binding
+## Two-way binding
+
+* Not just listening for imputs - but we pass a new value back into the input
+
+```javascript
+const [enteredTitle, setEnteredTitle] = useState("");
+const titleChangeHandler = (event) => {
+  setEnteredTitle(event.target.value)
+};
+<input type="text" value={enteredTitle} onChange={titleChangeHandler}>
+  // parse the value input - once form is submitted - this will
+  // change to whatever the value object is
+```
+
+## Parsing data from child to parent
+
+You can parse data back up by creating your custom props:
+
+```javascript
+const NewExpense = () => {
+  const saveExpenseDataHandler = (enteredExpenseData) => {
+    const expenseData = {
+      ...enteredExpenseData,
+      id: Math.random().toString()
+    };
+    console.log(expenseData);
+  };
+  return (
+    <div className="new-expense">
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler}/>
+    </div>
+  )
+}
+
+const submitHandler = (event) => {
+  event.preventDefault();
+  const expenseData = {
+    title: enteredTitle,
+    amount: enteredAmount,
+    date: new Date(enteredDate),
+  };
+  props.onSaveExpenseData(expenseData) // passes data back up
+  setEnteredTitle("");
+  setEnteredAmount("");
+  setEnteredDate("");
+};
+```

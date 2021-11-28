@@ -4,32 +4,32 @@ import "./ExpensesTemplate.css";
 import Card from "../../card/Card";
 
 const ExpensesTemplate = () => {
-    return (
-        <Card className="expensescss">
-            <h2>Let's get started!</h2>
-            <p>This is also visible - cool!</p>
-            <ExpenseItem
-                title={expenses[0].title}
-                amount={expenses[0].amount}
-                date={expenses[0].date}
-            />
-            <ExpenseItem
-                title={expenses[1].title}
-                amount={expenses[1].amount}
-                date={expenses[1].date}
-            />
-            <ExpenseItem
-                title={expenses[2].title}
-                amount={expenses[2].amount}
-                date={expenses[2].date}
-            />
-            <ExpenseItem
-                title={expenses[3].title}
-                amount={expenses[3].amount}
-                date={expenses[3].date}
-            />
-        </Card>
-    );
+  return (
+    <Card className="expensescss">
+      <h2>Let's get started!</h2>
+      <p>This is also visible - cool!</p>
+      <ExpenseItem
+        title={expenses[0].title}
+        amount={expenses[0].amount}
+        date={expenses[0].date}
+      />
+      <ExpenseItem
+        title={expenses[1].title}
+        amount={expenses[1].amount}
+        date={expenses[1].date}
+      />
+      <ExpenseItem
+        title={expenses[2].title}
+        amount={expenses[2].amount}
+        date={expenses[2].date}
+      />
+      <ExpenseItem
+        title={expenses[3].title}
+        amount={expenses[3].amount}
+        date={expenses[3].date}
+      />
+    </Card>
+  );
 }
 
 export default ExpensesTemplate;

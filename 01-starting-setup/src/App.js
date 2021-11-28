@@ -6,13 +6,17 @@ import NewExpense from "./components/expenses/new_expense/NewExpense";
  * @returns {JSX.Element}
  */
 const App = () => {
-    console.log("Starting App")
-    return (
-        <div>
-            <NewExpense/>
-            <ExpensesTemplate/>
-        </div>
-    )
+  console.log("Starting App")
+  const addExpenseHandler = (expenses) => {
+    console.log("in Expenses Template");
+    console.log(expenses);
+  };
+  return (
+    <div>
+      <NewExpense onAddExpense={addExpenseHandler}/>
+      <ExpensesTemplate/>
+    </div>
+  )
 }
 
 export default App;

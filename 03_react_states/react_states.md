@@ -94,13 +94,15 @@ const titleChangeHandler = (event) => {
     enteredTital: event.target.value
   })
 }
+// this would work - but can be better:
 
 const titleChangeHandler = (event) => {
-  setUserInput((prevState) => {
-    return {...prevState, enteredTital: event.target.value}
-  });
+  setUserInput(
+    (prevState) => {
+      return {...prevState, enteredTital: event.target.value}
+    } // pass a function to this function
+  );
 };
-// this would work - but can be better:
 // React schedules state updates - so with the 1st method you may be
 // updating from an outdated state
 // The new method always retrieves the latest state 
@@ -146,6 +148,8 @@ const titleChangeHandler = (event) => {
   // change to whatever the value object is
 ```
 
+* Whenever you create a two way binding you are creating a controlled component
+
 ## Parsing data from child to parent
 
 You can parse data back up by creating your custom props:
@@ -179,3 +183,5 @@ const submitHandler = (event) => {
   setEnteredDate("");
 };
 ```
+
+This essentially lifts state up between two sibling components - using app.js as the closest connection  

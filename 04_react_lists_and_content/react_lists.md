@@ -42,3 +42,4 @@ This is NOT ideal since it leads to performance issues and bugs regarding state.
 
 ## Conditional Content
 
+* Rendering differnt output under different conditions

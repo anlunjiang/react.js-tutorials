@@ -15,6 +15,11 @@ const ExpensesTemplate = (props) => {
     console.log(props.items)
   }
   console.log(props.items)
+
+  const filteredExpenses = props.items.filter(x => {
+    return x.date.getFullYear() === parseInt(filteredYear)
+  })
+
   return (
     <Card className="expensescss">
 
@@ -25,8 +30,9 @@ const ExpensesTemplate = (props) => {
       <p>This is also visible - cool!</p>
 
       {
-        props.items.map(expense => (
+        filteredExpenses.map(expense => (
           <ExpenseItem
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}

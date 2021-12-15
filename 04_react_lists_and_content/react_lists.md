@@ -40,6 +40,35 @@ This is NOT ideal since it leads to performance issues and bugs regarding state.
   * It knows where each element is 
 * You should ALWAYS add key prop when mapping out a list of items
 
-## Conditional Content
+## Styling JSX Dynamically
 
-* Rendering differnt output under different conditions
+* You can style JSX dynamically via the style attribute for tags - which expects objects
+
+```javascript
+return (
+  <div className="chart-bar_fill" style = {{height: barFiillHeight}}> 
+  </div>
+)
+```
+
+You can call all sorts of css functions here and assign them dynamically
+
+## Iterating in JS
+
+* JavaScript, unlike Python has two ways of iterating:
+  * For in
+    * For objects and to retrieve enumerated values - it returns the index
+  * For of
+    * Good for getting the actual values
+
+## Parse and Unary +
+
+parseInt on the other hand stops parsing when it sees a non-numerical character,
+like the period that is intended to be a decimal point
+```javascript
++'2.3' === 2.3;           //true
+parseInt('2.3',10) === 2; //true
+
++'' === 0;              //true
+isNaN(parseInt('',10)); //true
+```

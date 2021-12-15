@@ -1,4 +1,5 @@
-import ExpenseItem from "../expenses/expense_item/ExpenseItem";
+import ExpenseItem from "../expense_item/ExpenseItem";
+import "./ExpenseList.css"
 
 const ExpensesList = (props) => {
   if (props.filteredExpenses.length === 0) {

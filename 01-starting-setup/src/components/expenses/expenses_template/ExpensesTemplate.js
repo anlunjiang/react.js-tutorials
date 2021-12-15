@@ -2,7 +2,7 @@ import "./ExpensesTemplate.css";
 import Card from "../../card/Card";
 import ExpensesFilter from "../expense_filter/ExpenseFilter";
 import {useState} from "react";
-import ExpensesList from "../../ExpensesList/ExpensesList";
+import ExpensesList from "../expenses_list/ExpensesList";
 
 const ExpensesTemplate = (props) => {
   const [filteredYear, setFilterYear] = useState("2021");
